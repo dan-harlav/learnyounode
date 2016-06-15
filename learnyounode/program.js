@@ -47,18 +47,13 @@ explicitly convert to Strings.
 
 */
 
-var mymodule = require('./node-module');
+var http = require('http');
 
-var myCallback = function(err, result) {
-    if (err) {
-        console.log(err);
-    } else {
-        result.forEach(function(item) {
-            console.log(item);
-        });
-    }
-};
+var url = process.argv[2];
 
-var dirPath = process.argv[2];
-var extensionFilter = process.argv[3];
-mymodule(dirPath, extensionFilter, myCallback);
+http.get(url, function(response) {
+    response.setEncoding('utf8');
+    response.on('data', function(data) {
+        console.log(data);
+    });
+});

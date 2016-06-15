@@ -1,0 +1,166 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', 'q' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose node symlink /usr/local/bin/node
+5 warn package.json promise-shop@1.0.0 No repository field.
+6 warn package.json promise-shop@1.0.0 No README data
+7 verbose readDependencies using package.json deps
+8 verbose cache add [ 'q', null ]
+9 verbose cache add name=undefined spec="q" args=["q",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'q',
+10 verbose parsed url   path: 'q',
+10 verbose parsed url   href: 'q' }
+11 silly lockFile 22ea1c64-q q
+12 verbose lock q /Users/danny/.npm/22ea1c64-q.lock
+13 silly lockFile 22ea1c64-q q
+14 silly lockFile 22ea1c64-q q
+15 verbose addNamed [ 'q', '' ]
+16 verbose addNamed [ null, '*' ]
+17 silly lockFile f83edb5d-q q@
+18 verbose lock q@ /Users/danny/.npm/f83edb5d-q.lock
+19 silly addNameRange { name: 'q', range: '*', hasData: false }
+20 verbose request where is /q
+21 verbose request registry https://registry.npmjs.org/
+22 verbose request id 3c61dbf6590cca45
+23 verbose url raw /q
+24 verbose url resolving [ 'https://registry.npmjs.org/', './q' ]
+25 verbose url resolved https://registry.npmjs.org/q
+26 verbose request where is https://registry.npmjs.org/q
+27 info trying registry request attempt 1 at 19:34:05
+28 verbose etag "AX3UL13ZBXYX8KVMUA12DT577"
+29 http GET https://registry.npmjs.org/q
+30 http 304 https://registry.npmjs.org/q
+31 silly registry.get cb [ 304,
+31 silly registry.get   { date: 'Fri, 24 Jul 2015 16:34:06 GMT',
+31 silly registry.get     via: '1.1 varnish',
+31 silly registry.get     'cache-control': 'max-age=60',
+31 silly registry.get     etag: '"AX3UL13ZBXYX8KVMUA12DT577"',
+31 silly registry.get     age: '24',
+31 silly registry.get     connection: 'keep-alive',
+31 silly registry.get     'x-served-by': 'cache-ord1727-ORD',
+31 silly registry.get     'x-cache': 'HIT',
+31 silly registry.get     'x-cache-hits': '2',
+31 silly registry.get     'x-timer': 'S1437755646.801357,VS0,VE0',
+31 silly registry.get     vary: 'Accept' } ]
+32 verbose etag https://registry.npmjs.org/q from cache
+33 silly addNameRange number 2 { name: 'q', range: '*', hasData: true }
+34 silly addNameRange versions [ 'q',
+34 silly addNameRange   [ '0.0.0',
+34 silly addNameRange     '0.0.1',
+34 silly addNameRange     '0.0.2',
+34 silly addNameRange     '0.0.3',
+34 silly addNameRange     '0.1.0',
+34 silly addNameRange     '0.1.1',
+34 silly addNameRange     '0.1.2',
+34 silly addNameRange     '0.1.3',
+34 silly addNameRange     '0.1.4',
+34 silly addNameRange     '0.1.5',
+34 silly addNameRange     '0.1.6',
+34 silly addNameRange     '0.1.7',
+34 silly addNameRange     '0.1.8',
+34 silly addNameRange     '0.1.9',
+34 silly addNameRange     '0.2.0-rc1',
+34 silly addNameRange     '0.2.0',
+34 silly addNameRange     '0.2.1',
+34 silly addNameRange     '0.2.2',
+34 silly addNameRange     '0.2.3',
+34 silly addNameRange     '0.2.4',
+34 silly addNameRange     '0.2.5',
+34 silly addNameRange     '0.2.6',
+34 silly addNameRange     '0.2.7',
+34 silly addNameRange     '0.2.8',
+34 silly addNameRange     '0.2.9',
+34 silly addNameRange     '0.3.0',
+34 silly addNameRange     '0.2.10',
+34 silly addNameRange     '0.4.0',
+34 silly addNameRange     '0.4.1',
+34 silly addNameRange     '0.4.2',
+34 silly addNameRange     '0.4.4',
+34 silly addNameRange     '0.5.0',
+34 silly addNameRange     '0.5.1',
+34 silly addNameRange     '0.5.2',
+34 silly addNameRange     '0.5.3',
+34 silly addNameRange     '0.6.0',
+34 silly addNameRange     '0.7.0',
+34 silly addNameRange     '0.7.1',
+34 silly addNameRange     '0.7.2',
+34 silly addNameRange     '0.8.0',
+34 silly addNameRange     '0.8.1',
+34 silly addNameRange     '0.8.2',
+34 silly addNameRange     '0.8.3',
+34 silly addNameRange     '0.8.4',
+34 silly addNameRange     '0.8.5',
+34 silly addNameRange     '0.8.6',
+34 silly addNameRange     '0.8.7',
+34 silly addNameRange     '0.8.8',
+34 silly addNameRange     '0.8.9',
+34 silly addNameRange     '0.8.10',
+34 silly addNameRange     '0.8.11',
+34 silly addNameRange     '0.8.12',
+34 silly addNameRange     '0.9.0',
+34 silly addNameRange     '0.9.1',
+34 silly addNameRange     '0.9.2',
+34 silly addNameRange     '0.9.3',
+34 silly addNameRange     '0.9.4',
+34 silly addNameRange     '0.9.5',
+34 silly addNameRange     '0.9.6',
+34 silly addNameRange     '0.9.7',
+34 silly addNameRange     '1.0.0',
+34 silly addNameRange     '1.0.1',
+34 silly addNameRange     '2.0.0',
+34 silly addNameRange     '2.0.1',
+34 silly addNameRange     '2.0.2',
+34 silly addNameRange     '1.1.0',
+34 silly addNameRange     '1.1.1',
+34 silly addNameRange     '1.1.2',
+34 silly addNameRange     '2.0.3',
+34 silly addNameRange     '1.2.0',
+34 silly addNameRange     '1.2.1',
+34 silly addNameRange     '1.3.0',
+34 silly addNameRange     '1.4.0',
+34 silly addNameRange     '1.4.1' ] ]
+35 verbose addNamed [ 'q', '1.4.1' ]
+36 verbose addNamed [ '1.4.1', '1.4.1' ]
+37 silly lockFile 0ea9f2d2-q-1-4-1 q@1.4.1
+38 verbose lock q@1.4.1 /Users/danny/.npm/0ea9f2d2-q-1-4-1.lock
+39 silly lockFile ab42a988-registry-npmjs-org-q-q-1-4-1-tgz https://registry.npmjs.org/q/-/q-1.4.1.tgz
+40 verbose lock https://registry.npmjs.org/q/-/q-1.4.1.tgz /Users/danny/.npm/ab42a988-registry-npmjs-org-q-q-1-4-1-tgz.lock
+41 verbose addRemoteTarball [ 'https://registry.npmjs.org/q/-/q-1.4.1.tgz',
+41 verbose addRemoteTarball   '55705bcd93c5f3673530c2c2cbc0c2b3addc286e' ]
+42 info retry fetch attempt 1 at 19:34:06
+43 verbose fetch to= /var/folders/4l/wfwx_cfj3l1ggxk3pywthjrr0000gn/T/npm-55975-B2Vw8Bd5/registry.npmjs.org/q/-/q-1.4.1.tgz
+44 http GET https://registry.npmjs.org/q/-/q-1.4.1.tgz
+45 http 200 https://registry.npmjs.org/q/-/q-1.4.1.tgz
+46 silly lockFile ab42a988-registry-npmjs-org-q-q-1-4-1-tgz https://registry.npmjs.org/q/-/q-1.4.1.tgz
+47 silly lockFile ab42a988-registry-npmjs-org-q-q-1-4-1-tgz https://registry.npmjs.org/q/-/q-1.4.1.tgz
+48 silly lockFile 0ea9f2d2-q-1-4-1 q@1.4.1
+49 silly lockFile 0ea9f2d2-q-1-4-1 q@1.4.1
+50 silly lockFile f83edb5d-q q@
+51 silly lockFile f83edb5d-q q@
+52 error Error: EACCES, mkdir '/Users/danny/.npm/q/1.4.1'
+52 error  { [Error: EACCES, mkdir '/Users/danny/.npm/q/1.4.1']
+52 error   errno: 3,
+52 error   code: 'EACCES',
+52 error   path: '/Users/danny/.npm/q/1.4.1',
+52 error   parent: 'promise-shop' }
+53 error Please try running this command again as root/Administrator.
+54 error System Darwin 14.4.0
+55 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "q"
+56 error cwd /Users/danny/Sites/nodeschool/promise-shop
+57 error node -v v0.10.35
+58 error npm -v 1.4.28
+59 error path /Users/danny/.npm/q/1.4.1
+60 error code EACCES
+61 error errno 3
+62 error stack Error: EACCES, mkdir '/Users/danny/.npm/q/1.4.1'
+63 verbose exit [ 3, true ]

@@ -1,61 +1,96 @@
 /*
 
-   JUGGLING ASYNC
-   Exercise 9 of 13
+    TIME SERVER
+    Exercise 10 of 13
 
-  This problem is the same as the previous problem (HTTP COLLECT) in that you
-  need to use http.get(). However, this time you will be provided with three
-  URLs as the first three command-line arguments.
+   Write a TCP time server!
 
-  You must collect the complete content provided to you by each of the URLs and
-  print it to the console (stdout). You don't need to print out the length, just
-  the data as a String; one line per URL. The catch is that you must print them
-  out in the same order as the URLs are provided to you as command-line
-  arguments.
+   Your server should listen to TCP connections on the port provided by the first
+   argument to your program. For each connection you must write the current date
+    & 24 hour time in the format:
 
-  -------------------------------------------------------------------------------
+       "YYYY-MM-DD hh:mm"
 
-  ## HINTS
+   followed by a newline character. Month, day, hour and minute must be
+   zero-filled to 2 integers. For example:
 
-  Don't expect these three servers to play nicely! They are not going to give
-  you complete responses in the order you hope, so you can't naively just print
-  the output as you get it because they will be out of order.
+       "2013-07-06 17:42"
 
-  You will need to queue the results and keep track of how many of the URLs have
-  returned their entire contents. Only once you have them all, you can print the
-  data to the console.
+   -------------------------------------------------------------------------------
 
-  Counting callbacks is one of the fundamental ways of managing async in Node.
-  Rather than doing it yourself, you may find it more convenient to rely on a
-  third-party library such as [async](http://npm.im/async) or [after](http://npm.im/after).
-  But for this exercise, try and do it without any external helper library.
+   ## HINTS
 
-  -------------------------------------------------------------------------------
+   For this exercise we'll be creating a raw TCP server. There's no HTTP
+   involved here so we need to use the net module from Node core which has all
+   the basic networking functions.
+
+   The net module has a method named net.createServer() that takes a callback
+   function. Unlike most callbacks in Node, the callback used by createServer()
+   is called more than once. Every connection received by your server triggers
+   another call to the callback. The callback function has the signature:
+
+       function callback (socket) { /* ... * }
+
+   net.createServer() also returns an instance of your server. You must call
+   server.listen(portNumber) to start listening on a particular port.
+
+   A typical Node TCP server looks like this:
+
+       var net = require('net')
+       var server = net.createServer(function (socket) {
+         // socket handling logic
+       })
+       server.listen(8000)
+
+   Remember to use the port number supplied to you as the first command-line
+   argument.
+
+   The socket object contains a lot of meta-data regarding the connection,
+   but it is also a Node duplex Stream, in that it can be both read from, and
+   written to. For this exercise we only need to write data and then close the
+   socket.
+
+   Use socket.write(data) to write data to the socket and socket.end() to close
+   the socket. Alternatively, the .end() method also takes a data object so you
+   can simplify to just: socket.end(data).
+
+   Documentation on the net module can be found by pointing your browser here:
+
+     file:///usr/local/share/npm/lib/node_modules/learnyounode/node_apidoc/net.html
+
+   To create the date, you'll need to create a custom format from a new Date()
+   object. The methods that will be useful are:
+
+       date.getFullYear()
+       date.getMonth()     // starts at 0
+       date.getDate()      // returns the day of month
+       date.getHours()
+       date.getMinutes()
+
+   Or, if you want to be adventurous, use the strftime package from npm. The
+   strftime(fmt, date) function takes date formats just like the unix date
+   command. You can read more about strftime at: [https://github.com/samsonjs/strftime](https://github.com/samsonjs/strftime)
+
+   -------------------------------------------------------------------------------
+
+    » To print these instructions again, run: learnyounode print
+    » To execute your program in a test environment, run: learnyounode run program.js
+    » To verify your program, run: learnyounode verify program.js
+    » For help run: learnyounode help
 
 */
 
-var http = require('http');
+var net = require('net');
+var strftime = require('strftime');
 
-var getContent = function(urls) {
-    var url = urls.shift();
-    http.get(url, function(response) {
-        var fullData = '';
-        response.setEncoding('utf8');
+var port = process.argv[2];
+// var port = 8888;
+console.log('Listening on port: ' + port);
 
-        response.on('data', function(data) {
-            fullData = fullData + data;
-        }).on('end', function() {
-            console.log(fullData);
-            if (urls.length) {
-              getContent(urls);
-            }
-        });
-    });
-}
 
-urls = [];
-for (var i = 2; i <= 4; i++) {
-  urls.push(process.argv[i]);
-}
-
-getContent(urls);
+var server = net.createServer(function (socket) {
+  var d = new Date();
+  var output = strftime('%Y-%m-%d %H:%M', d) + '\n';
+  socket.end(output);
+});
+server.listen(port);
